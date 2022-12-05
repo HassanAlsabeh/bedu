@@ -1,9 +1,12 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
+import {login, register, resetLogin} from './authSlice';
 import {increment, decrement, reset} from './counterSlice';
 const Counter = () => {
   const count = useSelector(state => state.counter.count);
+  const auth = useSelector(state => state.auth.user);
+  console.log('authhhhhhh', auth);
   const dispatch = useDispatch();
 
   return (
@@ -11,16 +14,20 @@ const Counter = () => {
       <Text>{count}</Text>
       <TouchableOpacity
         onPress={() => {
-          dispatch(increment());
+          dispatch(login());
         }}>
         <Text>+</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          dispatch(decrement());
+          dispatch(register());
         }}>
         <Text>-</Text>
       </TouchableOpacity>
+
+      <Text>{auth.name}</Text>
+      <Text>{auth.personal_id}</Text>
+
       <TouchableOpacity
         onPress={() => {
           dispatch(reset());

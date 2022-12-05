@@ -67,8 +67,8 @@ export default function App({onPress, bgColor, title}) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Login />
-        {/* <Counter /> */}
+        {/* <Login /> */}
+        <Counter />
         {/* <Container>
         <Header headerTitle="social" />
         <RowContainer>
